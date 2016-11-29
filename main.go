@@ -132,8 +132,8 @@ func (c Client) deleteVolume() error {
 
 	//fmt.Printf("run cmd 1: \"%s\"\n", cmd[0])
 	//fmt.Printf("run cmd 2: \"%s\"\n", cmd[1])
-	if err = session.Run(cmd[0] + "; " + cmd[1]); err != nil {
-		fmt.Println("failed to run cmd:", cmd[0], "; ", cmd[1], err)
+	if err = session.Run(cmd[0] + "; " + cmd[1] + "; " + cmd[2] + "; " + cmd[3]); err != nil {
+		fmt.Println("failed to run cmd:", cmd[0], "; ", cmd[1], "; ", cmd[2], "; ", cmd[3], err)
 		return err
 	}
 
