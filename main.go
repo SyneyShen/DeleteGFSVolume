@@ -121,9 +121,11 @@ func (c Client) deleteVolume() error {
 	}
 	defer session.Close()
 
-	var cmd [2]string
+	var cmd [4]string
 	cmd[0] = fmt.Sprintf("setfattr -x trusted.glusterfs.volume-id %s", c.volume)
 	cmd[1] = fmt.Sprintf("rm -rf %s/*", c.volume)
+	cmd[2] = fmt.Sprintf("rm -rf %s/.glusterfs", c.volume)
+	cmd[3] = fmt.Sprintf("rm -rf %s/.trashcan", c.volume)
 
 	session.Stdout = os.Stdout
 	session.Stderr = os.Stderr
